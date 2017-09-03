@@ -1,0 +1,22 @@
+{
+  "name": "base",
+  "version": "1.0.0",
+  "description": "Base: Sass, JavaScript architecture and Gulp Tasks Edit",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IgnaciodeNuevo/base.git"
+  },
+  "author": "Ignacio Villanueva",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IgnaciodeNuevo/base/issues"
+  },
+  "homepage": "https://github.com/IgnaciodeNuevo/base#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
