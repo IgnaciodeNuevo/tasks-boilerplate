@@ -17,7 +17,6 @@ cd Base
 To install dependencies following command:
 
 ```
-gem install scss_lint
 npm install
 ```
 
