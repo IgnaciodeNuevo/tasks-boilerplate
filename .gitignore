@@ -1,6 +1,9 @@
 
-# Created by https://www.gitignore.io/api/node,macos,jekyll
+# Created by https://www.gitignore.io/api/hugo,node,macos,jekyll
 
+### Hugo ###
+hugo.exe
+/public/
 ### Jekyll ###
 _site/
 .sass-cache/
@@ -96,5 +99,4 @@ typings/
 # Package-lock.json
 package-lock.json
 
-
-# End of https://www.gitignore.io/api/node,macos,jekyll
+# End of https://www.gitignore.io/api/hugo,node,macos,jekyll
