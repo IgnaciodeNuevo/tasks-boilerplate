@@ -23,3 +23,19 @@ const stylelintConfigStandard = require('stylelint-config-standard');
 const stylelintOrder = require('stylelint-order');
 const stylelintScss = require('stylelint-scss');
 const stylelint = require('stylelint');
+
+gulp.task('browserSync', function() {
+  browserSync({
+    server: {
+      baseDir: './',
+    },
+  });
+});
+
+/* Variables */
+var imgSrc = './src/assets/img/*';
+var imgDist = './dist/assets/img/';
+var jsSrc = './src/assets/js/*.js';
+var jsDist = './dist/assets/js/*.js';
+var cssSrc = './src/assets/css/*.css';
+var cssDist = './dist/assets/css/*.css';
