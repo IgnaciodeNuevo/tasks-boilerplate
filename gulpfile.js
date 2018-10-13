@@ -21,7 +21,7 @@ const svgSprite = require('gulp-svg-sprite');
 const uglify = require('gulp-uglify');
 const watch = require('gulp-watch');
 
-/* Variables */
+// Variables
 const imgSrc = './src/assets/img/';
 const imgDist = './dist/assets/img/';
 const jsSrc = './src/assets/js/';
