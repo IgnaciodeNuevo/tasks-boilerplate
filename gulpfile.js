@@ -44,6 +44,10 @@ gulp.task('browserSync', function() {
     });
 });
 
+gulp.task('watch', function() {
+    gulp.watch(watch.sass, { interval: 500 }, ['sass']);
+});
+
 gulp.task('imgrwd', function() {
     // Set images route
     return (
