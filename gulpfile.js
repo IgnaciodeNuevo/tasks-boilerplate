@@ -31,6 +31,10 @@ const jsSrc = './src/assets/js/';
 const jsDist = './dist/assets/js/';
 const scssSrc = './src/assets/css/';
 const scssDist = './dist/assets/css/';
+const watch = {
+    js: [`${jsSrc}/**/*.js`],
+    sass: [`${scssSrc}/**/*.scss`],
+};
 
 gulp.task('browserSync', function() {
     browserSync({
