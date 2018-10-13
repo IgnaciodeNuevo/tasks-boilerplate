@@ -29,8 +29,8 @@ const imgSrc = './src/assets/img/';
 const imgDist = './dist/assets/img/';
 const jsSrc = './src/assets/js/';
 const jsDist = './dist/assets/js/';
-const cssSrc = './src/assets/css/';
-const cssDist = './dist/assets/css/';
+const scssSrc = './src/assets/css/';
+const scssDist = './dist/assets/css/';
 
 gulp.task('browserSync', function() {
     browserSync({
