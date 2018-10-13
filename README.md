@@ -42,6 +42,7 @@ gulp
 * [gulp-newer](https://github.com/tschaub/gulp-newer)
 * [gulp-plumber](https://github.com/floatdrop/gulp-plumber)
 * [gulp-responsive](https://github.com/mahnunchik/gulp-responsive)
+* [gulp-webp](https://github.com/sindresorhus/gulp-webp)
 * [gulp-sass](https://github.com/dlmanning/gulp-sass)
 * [gulp-sourcemaps](https://github.com/gulp-sourcemaps/gulp-sourcemaps)
 * [gulp-svgo](https://github.com/ben-eb/gulp-svgmin)

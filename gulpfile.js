@@ -88,3 +88,12 @@ gulp.task('imgrwd', function() {
             .pipe(gulp.dest(`${imgDist}`))
     );
 });
+
+gulp.task('webp', () =>
+    // Set images route
+    gulp
+        .src(`${imgSrc}*.jpg`)
+        .pipe(webp())
+        // Output folder for WebP Images
+        .pipe(gulp.dest(`${imgDist}`))
+);
