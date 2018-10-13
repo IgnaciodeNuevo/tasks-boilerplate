@@ -24,18 +24,67 @@ const stylelintOrder = require('stylelint-order');
 const stylelintScss = require('stylelint-scss');
 const stylelint = require('stylelint');
 
+/* Variables */
+const imgSrc = './src/assets/img/';
+const imgDist = './dist/assets/img/';
+const jsSrc = './src/assets/js/';
+const jsDist = './dist/assets/js/';
+const cssSrc = './src/assets/css/';
+const cssDist = './dist/assets/css/';
+
 gulp.task('browserSync', function() {
-  browserSync({
-    server: {
-      baseDir: './',
-    },
-  });
+    browserSync({
+        server: {
+            baseDir: './',
+        },
+    });
 });
 
-/* Variables */
-var imgSrc = './src/assets/img/*';
-var imgDist = './dist/assets/img/';
-var jsSrc = './src/assets/js/*.js';
-var jsDist = './dist/assets/js/*.js';
-var cssSrc = './src/assets/css/*.css';
-var cssDist = './dist/assets/css/*.css';
+gulp.task('imgrwd', function() {
+    // Set images route
+    return (
+        gulp
+            .src(`${imgSrc}*.{png,jpg}`)
+            .pipe(
+                responsive(
+                    {
+                        '*.png': [
+                            {
+                                // Set image size
+                                width: 300,
+                                rename: {
+                                    // Add suffix
+                                    suffix: '-300px',
+                                    extname: '.jpg',
+                                },
+                                // Choose format
+                                format: 'jpeg',
+                            },
+                            {
+                                width: 600,
+                                rename: {
+                                    suffix: '-600px',
+                                    extname: '.jpg',
+                                },
+                            },
+                            {
+                                width: 1200,
+                                rename: {
+                                    suffix: '-1200px',
+                                    extname: '.jpg',
+                                },
+                            },
+                        ],
+                    },
+                    {
+                        quality: 80,
+                        progressive: true,
+                        withMetadata: false,
+                        errorOnEnlargement: false,
+                    }
+                )
+            )
+            // Output folder
+            .pipe(gulp.dest(`${imgDist}`))
+    );
+});
