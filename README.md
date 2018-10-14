@@ -26,6 +26,11 @@ To run the project use the following command:
 gulp
 ```
 
+## JavaScript Libraries
+
+* [Font Face Observer](https://fontfaceobserver.com/)
+
+
 ## Plugins
 
 * [browser-sync](https://github.com/BrowserSync/browser-sync)
