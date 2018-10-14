@@ -4,7 +4,15 @@
 @import
   'abstracts/variables',
   'abstracts/functions',
-  'abstracts/mixins';
+  'abstracts/mixins/absolute',
+  'abstracts/mixins/arrows',
+  'abstracts/mixins/baseline',
+  'abstracts/mixins/custom-properties-fallback',
+  'abstracts/mixins/ellipsis',
+  'abstracts/mixins/fonts',
+  'abstracts/mixins/multiline-ellipsis',
+  'abstracts/mixins/viewport-units-ios',
+  'abstracts/mixins/crop-text';
 
 // 2. Vendors
 @import
@@ -15,7 +23,7 @@
   'base/base',
   'base/fonts',
   'base/typography',
-  'base/helpers';
+  'base/utilities';
 
 // 4. Layout-related sections
 @import
@@ -23,13 +31,7 @@
   'layout/footer';
 
 // 5. Components
-@import
-  'components/button';
 
 // 6. Page-specific styles
 @import
   'pages/home';
-
-// 7. Themes
-@import
-  'themes/default';

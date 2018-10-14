@@ -23,11 +23,15 @@ const watch = require('gulp-watch');
 
 // Variables
 const imgSrc = './src/assets/img/';
-const imgDist = './dist/assets/img/';
+const imgDist = './dist/assets/img';
 const jsSrc = './src/assets/js/';
-const jsDist = './dist/assets/js/';
-const scssSrc = './src/assets/css/';
-const scssDist = './dist/assets/css/';
+const jsDist = './dist/assets/js';
+const scssSrc = './src/assets/styles/';
+const scssDist = './dist/assets/styles';
+const filesSrc = {
+    js: `${jsSrc}/**/*.js`,
+    sass: `${scssSrc}/**/*.scss`,
+};
 
 gulp.task('serve', function() {
     browserSync({
@@ -35,6 +39,19 @@ gulp.task('serve', function() {
             baseDir: './',
         },
     });
+});
+
+gulp.task('watch', function() {
+    gulp.watch(filesSrc.sass, { interval: 500 }, ['sass']);
+});
+
+gulp.task('sass', function() {
+    return gulp
+        .src(`${scssSrc}/**/*.scss`)
+        .pipe(sourceMaps.init())
+        .pipe(sass.sync({ outputStyle: 'compressed' }).on('error', sass.logError))
+        .pipe(sourceMaps.write('./maps'))
+        .pipe(gulp.dest(`${scssDist}`));
 });
 
 gulp.task('images', function() {
