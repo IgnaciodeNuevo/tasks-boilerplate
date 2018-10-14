@@ -1,0 +1,22 @@
+{
+    "images": {
+        "src": "./src/assets/images/*.{jpg,png}",
+        "dist": "./dist/assets/images"
+    },
+    "scripts": {
+        "src": "./src/assets/scripts/",
+        "dist": "./dist/assets/scripts"
+    },
+    "styles": {
+        "src": "./src/assets/styles/",
+        "dist": "./dist/assets/styles"
+    },
+    "maps": {
+        "src": "./src/assets/maps/",
+        "dist": "./dist/assets/maps"
+    },
+    "watch": {
+        "scripts": "/src/assets/scripts/",
+        "styles": "./src/assets/styles/"
+    }
+}

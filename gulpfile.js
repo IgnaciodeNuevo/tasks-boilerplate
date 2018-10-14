@@ -3,6 +3,7 @@ const browserSync = require('browser-sync');
 const changed = require('gulp-changed');
 const cleanCss = require('gulp-clean-css');
 const concat = require('gulp-concat');
+const config = require('./config.json');
 const critical = require('critical');
 const del = require('del');
 const eslint = require('eslint');
@@ -22,33 +23,22 @@ const svgSprite = require('gulp-svg-sprite');
 const uglify = require('gulp-uglify');
 const watch = require('gulp-watch');
 
-// Source and distribution variables
-const imagesSrc = './src/assets/img/';
-const imagesDist = './dist/assets/img';
-const javaScriptSrc = './src/assets/scripts/';
-const javaScriptDist = './dist/assets/scripts';
-const sassSrc = './src/assets/styles/';
-const sassDist = './dist/assets/styles';
-const sourceMapsDist = './dist/assets/maps';
-const filesSrc = {
-    js: `${javaScriptSrc}/**/*.js`,
-    sass: `${sassSrc}/**/*.scss`,
-};
-
 // Launch Server
 gulp.task('serve', function() {
     browserSync({
         server: {
-            baseDir: './',
+            baseDir: './dist',
         },
     });
+    // Watch Sass and JavaScript changes
+    // gulp.watch(config.watch.scripts, { interval: 500 }, ['scripts']);
+    // gulp.watch(config.watch.styles, { interval: 500 }, ['styles']);
 });
 
 // Process Images
 gulp.task('images', function() {
     return gulp
-        .src(`${imagesSrc}*.{jpg,png}`)
-        .pipe(changed(`${imagesDist}`))
+        .src(config.images.src)
         .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
         .pipe(
             responsive(
@@ -455,6 +445,6 @@ gulp.task('images', function() {
                 }
             )
         )
-        .pipe(gulp.dest(`${imagesDist}`))
-        .pipe(notify({ message: 'Images task finished!', onLast: true }));;
+        .pipe(gulp.dest(config.images.dist))
+        .pipe(notify({ message: 'Images task finished!', onLast: true }));
 });
