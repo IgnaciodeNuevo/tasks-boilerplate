@@ -26,6 +26,32 @@ To run the project use the following command:
 gulp
 ```
 
+### Estructura
+
+```
+
+├─ src/               # Master
+│  ├─ assets/
+│  │   ├─ fonts/      # Tipografías
+│  │   ├─ images/     # Imágenes
+│  │   ├─ javascript/ # Scripts
+│  │   └─ styles/     # Estilos
+│
+├─ dist/              # Distribution
+│  ├─ assets/
+│  │   ├─ fonts/      # Tipografías
+│  │   ├─ images/     # Imágenes optimizadas para producción
+│  │   ├─ javascript/ # Scripts concatenados y minificado
+│  │   └─ styles/     # Estilos concatenados y minificado
+│
+├─ .gitignore        # Lista de archivos excluídos en Git
+├─ .stylelintignore  # Lista de archivos que no serán linteados por Stylelint
+├─ .stylelintrc      # Linteando de estilos
+├─ index.html        # HTML básico
+├─ gulpfile.js       # Gulp!
+└─ package.json      # Dependencias
+```
+
 ## JavaScript Libraries
 
 * [Font Face Observer](https://fontfaceobserver.com/)
