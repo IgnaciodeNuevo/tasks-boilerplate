@@ -7,6 +7,7 @@ const critical = require('critical');
 const del = require('del');
 const eslint = require('eslint');
 const gulp = require('gulp');
+const notify = require('gulp-notify');
 const imageMin = require('gulp-imagemin');
 const plumber = require('gulp-plumber');
 const responsive = require('gulp-responsive');
@@ -47,6 +48,8 @@ gulp.task('serve', function() {
 gulp.task('images', function() {
     return gulp
         .src(`${imagesSrc}*.{jpg,png}`)
+        .pipe(changed(`${imagesDist}`))
+        .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
         .pipe(
             responsive(
                 {
@@ -452,5 +455,6 @@ gulp.task('images', function() {
                 }
             )
         )
-        .pipe(gulp.dest(`${imagesDist}`));
+        .pipe(gulp.dest(`${imagesDist}`))
+        .pipe(notify({ message: 'Images task finished!', onLast: true }));;
 });

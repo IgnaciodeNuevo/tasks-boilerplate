@@ -42,6 +42,7 @@ gulp
 * [gulp-clean-css](https://github.com/scniro/gulp-clean-css)
 * [gulp-concat](https://github.com/gulp-community/gulp-concat)
 * [gulp-imagemin](https://github.com/sindresorhus/gulp-imagemin)
+* [gulp-notify](https://github.com/mikaelbr/gulp-notify)
 * [gulp-plumber](https://github.com/floatdrop/gulp-plumber)
 * [gulp-rename](https://github.com/hparra/gulp-rename)
 * [gulp-responsive](https://github.com/mahnunchik/gulp-responsive)
