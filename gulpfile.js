@@ -27,12 +27,12 @@ const watch = require('gulp-watch');
 gulp.task('serve', () => {
     browserSync({
         server: {
-            baseDir: './dist',
+            baseDir: './',
         },
     });
     // Watch Sass and JavaScript changes
-    // gulp.watch(config.watch.scripts, { interval: 500 }, ['scripts']);
-    // gulp.watch(config.watch.styles, { interval: 500 }, ['styles']);
+    // gulp.watch(config.watch.scripts, { interval: 500 }, ['reload', ['scripts']]);
+    // gulp.watch(config.watch.styles, { interval: 500 }, ['reload', ['styles']]);
 });
 
 // Process CSS files to generate final css files in 'public' folder
@@ -495,3 +495,6 @@ gulp.task('images', () => {
         .pipe(gulp.dest(config.images.dist))
         .pipe(notify({ message: 'Images task finished!', onLast: true }));
 });
+
+// Delete Public folder
+gulp.task('clean', del.bind(null, ['./dist']));
