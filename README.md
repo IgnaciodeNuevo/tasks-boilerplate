@@ -49,7 +49,6 @@ gulp
 * [gulp-rev](https://github.com/sindresorhus/gulp-rev)
 * [gulp-sass](https://github.com/dlmanning/gulp-sass)
 * [gulp-sourcemaps](https://github.com/gulp-sourcemaps/gulp-sourcemaps)
-* [gulp-svg-sprite](https://github.com/jkphl/gulp-svg-sprite)
 * [gulp-svgo](https://github.com/ben-eb/gulp-svgmin)
 * [gulp-uglify](https://github.com/terinjokes/gulp-uglify)
 * [gulp-watch](https://github.com/floatdrop/gulp-watch)
@@ -59,6 +58,7 @@ gulp
 * [stylelint-order](https://github.com/hudochenkov/stylelint-order)
 * [stylelint-scss](https://github.com/kristerkari/stylelint-scss)
 * [stylelint](https://github.com/stylelint/stylelint)
+<!-- * [gulp-svg-sprite](https://github.com/jkphl/gulp-svg-sprite) -->
 
 ## Removed Plugins
 

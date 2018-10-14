@@ -19,9 +19,9 @@ const styleLintConfigStandard = require('stylelint-config-standard');
 const styleLintOrder = require('stylelint-order');
 const styleLintScss = require('stylelint-scss');
 const svgo = require('gulp-svgo');
-const svgSprite = require('gulp-svg-sprite');
 const uglify = require('gulp-uglify');
 const watch = require('gulp-watch');
+// const svgSprite = require('gulp-svg-sprite');
 
 // Launch Server
 gulp.task('serve', function() {
