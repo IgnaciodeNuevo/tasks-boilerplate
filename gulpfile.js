@@ -24,7 +24,7 @@ const watch = require('gulp-watch');
 // const svgSprite = require('gulp-svg-sprite');
 
 // Launch Server
-gulp.task('serve', function() {
+gulp.task('serve', () => {
     browserSync({
         server: {
             baseDir: './dist',
@@ -35,8 +35,8 @@ gulp.task('serve', function() {
     // gulp.watch(config.watch.styles, { interval: 500 }, ['styles']);
 });
 
-// Process Sass
-gulp.task('styles', function() {
+// Process CSS files to generate final css files in 'public' folder
+gulp.task('styles', () => {
     return gulp
         .src(config.styles.src)
         .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
@@ -58,6 +58,20 @@ gulp.task('styles', function() {
         .pipe(notify({ message: 'Styles task finished!', onLast: true }));
 });
 
+// Process Scripts to generate final js file in 'public' folder
+gulp.task('scripts', function() {
+    return gulp
+        .src(config.scripts.src)
+        .pipe(sourceMaps.init())
+        .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
+        .pipe(concat('main.js'))
+        .pipe(uglify())
+        .pipe(sourceMaps.write(config.maps.dist))
+        .pipe(gulp.dest(config.scripts.dist))
+        .pipe(browserSync.reload({ stream: true }))
+        .pipe(notify({ message: 'tyles task finished!', onLast: true }));
+});
+
 // Process SVGs
 gulp.task('svg', () => {
     return gulp
@@ -69,7 +83,7 @@ gulp.task('svg', () => {
 });
 
 // Process Images
-gulp.task('images', function() {
+gulp.task('images', () => {
     return gulp
         .src(config.images.src)
         .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
