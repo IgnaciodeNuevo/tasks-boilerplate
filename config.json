@@ -3,6 +3,10 @@
         "src": "./src/assets/images/*.{jpg,png}",
         "dist": "./dist/assets/images"
     },
+    "svg": {
+        "src": "./src/assets/images/*.svg",
+        "dist": "./dist/assets/images"
+    },
     "scripts": {
         "src": "./src/assets/scripts/",
         "dist": "./dist/assets/scripts"

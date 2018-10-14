@@ -58,6 +58,16 @@ gulp.task('styles', function() {
         .pipe(notify({ message: 'Styles task finished!', onLast: true }));
 });
 
+// Process SVGs
+gulp.task('svg', () => {
+    return gulp
+        .src(config.svg.src)
+        .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
+        .pipe(svgo())
+        .pipe(gulp.dest(config.svg.dist))
+        .pipe(notify({ message: 'SVG task finished!', onLast: true }));
+});
+
 // Process Images
 gulp.task('images', function() {
     return gulp
@@ -468,6 +478,7 @@ gulp.task('images', function() {
                 }
             )
         )
+        .pipe(imageMin)
         .pipe(gulp.dest(config.images.dist))
         .pipe(notify({ message: 'Images task finished!', onLast: true }));
 });
