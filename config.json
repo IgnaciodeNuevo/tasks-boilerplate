@@ -16,7 +16,7 @@
         "dist": "./dist/assets/maps"
     },
     "watch": {
-        "scripts": "/src/assets/scripts/",
-        "styles": "./src/assets/styles/"
+        "scripts": "./src/assets/scripts/**/*.js",
+        "styles": "./src/assets/styles/**/*.scss"
     }
 }

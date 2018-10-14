@@ -35,6 +35,29 @@ gulp.task('serve', function() {
     // gulp.watch(config.watch.styles, { interval: 500 }, ['styles']);
 });
 
+// Process Sass
+gulp.task('styles', function() {
+    return gulp
+        .src(config.styles.src)
+        .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
+        .pipe(sourceMaps.init())
+        .pipe(
+            sass({
+                outputStyle: 'compressed',
+            })
+        )
+        .pipe(
+            autoPrefixer({
+                browsers: ['last 2 versions', 'ie >= 11'],
+                cascade: false,
+            })
+        )
+        .pipe(sourceMaps.write(config.maps.dist))
+        .pipe(gulp.dest(config.styles.dist))
+        .pipe(browserSync.reload({ stream: true }))
+        .pipe(notify({ message: 'Styles task finished!', onLast: true }));
+});
+
 // Process Images
 gulp.task('images', function() {
     return gulp
