@@ -1,25 +1,25 @@
-const autoPrefixer = require('gulp-autoprefixer');
-const browserSync = require('browser-sync');
-const changed = require('gulp-changed');
-const cleanCss = require('gulp-clean-css');
-const concat = require('gulp-concat');
-const config = require('./config.json');
-const critical = require('critical');
-const del = require('del');
-const eslint = require('eslint');
-const gulp = require('gulp');
-const notify = require('gulp-notify');
-const plumber = require('gulp-plumber');
-const responsive = require('gulp-responsive');
-const sass = require('gulp-sass');
-const sourceMaps = require('gulp-sourcemaps');
-const styleLint = require('stylelint');
-const styleLintConfigStandard = require('stylelint-config-standard');
-const styleLintOrder = require('stylelint-order');
-const styleLintScss = require('stylelint-scss');
-const svgo = require('gulp-svgo');
-const uglify = require('gulp-uglify');
-const watch = require('gulp-watch');
+const autoPrefixer = require('gulp-autoprefixer'),
+    browserSync = require('browser-sync'),
+    changed = require('gulp-changed'),
+    cleanCss = require('gulp-clean-css'),
+    concat = require('gulp-concat'),
+    config = require('./config.json'),
+    critical = require('critical'),
+    del = require('del'),
+    eslint = require('gulp-eslint'),
+    gulp = require('gulp'),
+    notify = require('gulp-notify'),
+    plumber = require('gulp-plumber'),
+    responsive = require('gulp-responsive'),
+    sass = require('gulp-sass'),
+    sourceMaps = require('gulp-sourcemaps'),
+    styleLint = require('stylelint'),
+    styleLintConfigStandard = require('stylelint-config-standard'),
+    styleLintOrder = require('stylelint-order'),
+    styleLintScss = require('stylelint-scss'),
+    svgo = require('gulp-svgo'),
+    uglify = require('gulp-uglify'),
+    watch = require('gulp-watch');
 // const imageMin = require('gulp-imagemin');
 // const svgSprite = require('gulp-svg-sprite');
 
@@ -36,7 +36,7 @@ gulp.task('serve', () => {
 });
 
 // Force a browser page reload
-gulp.task('reload', function() {
+gulp.task('reload', () => {
     browserSync.reload();
 });
 
@@ -64,9 +64,18 @@ gulp.task('styles', () => {
 });
 
 // Process Scripts to generate final js file in 'public' folder
-gulp.task('scripts', function() {
+gulp.task('scripts', () => {
     return gulp
         .src(config.scripts.src)
+        .pipe(
+            eslint.results(results => {
+                // Called once for all ESLint results.
+                console.log(`Total Results: ${results.length}`);
+                console.log(`Total Warnings: ${results.warningCount}`);
+                console.log(`Total Errors: ${results.errorCount}`);
+            })
+        )
+        .pipe(eslint.formatEach('compact', process.stderr))
         .pipe(sourceMaps.init())
         .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
         .pipe(concat('main.js'))
