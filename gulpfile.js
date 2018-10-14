@@ -35,6 +35,11 @@ gulp.task('serve', () => {
     // gulp.watch(config.watch.styles, { interval: 500 }, ['reload', ['styles']]);
 });
 
+// Force a browser page reload
+gulp.task('reload', function() {
+    browserSync.reload();
+});
+
 // Process CSS files to generate final css files in 'public' folder
 gulp.task('styles', () => {
     return gulp
