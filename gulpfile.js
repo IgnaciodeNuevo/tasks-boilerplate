@@ -29,7 +29,7 @@ const jsDist = './dist/assets/js/';
 const scssSrc = './src/assets/css/';
 const scssDist = './dist/assets/css/';
 
-gulp.task('browserSync', function() {
+gulp.task('serve', function() {
     browserSync({
         server: {
             baseDir: './',
@@ -45,6 +45,7 @@ gulp.task('images', function() {
                 {
                     '*.png': [
                         {
+                            // -small.webp is 320 pixels wide
                             width: 320,
                             rename: {
                                 suffix: '-small',
@@ -52,6 +53,7 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -small@2x.webp is 640 pixels wide
                             width: 320 * 2,
                             rename: {
                                 suffix: '-small@2x',
@@ -59,6 +61,7 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -small@3x.webp is 960 pixels wide
                             width: 320 * 3,
                             rename: {
                                 suffix: '-small@3x',
@@ -66,6 +69,7 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -medium.webp is 768 pixels wide
                             width: 768,
                             rename: {
                                 suffix: '-medium',
@@ -73,6 +77,7 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -medium@2x.webp is 1.536 pixels wide
                             width: 768 * 2,
                             rename: {
                                 suffix: '-medium@2x',
@@ -80,6 +85,7 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -medium@3x.webp is 2.304 pixels wide
                             width: 768 * 3,
                             rename: {
                                 suffix: '-medium@3x',
@@ -87,6 +93,7 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -large.webp is 1.280 pixels wide
                             width: 1280,
                             rename: {
                                 suffix: '-large',
@@ -94,6 +101,7 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -large@2x.webp is 2.560 pixels wide
                             width: 1280 * 2,
                             rename: {
                                 suffix: '-large@2x',
@@ -101,6 +109,7 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -large@3x.webp is 3.840 pixels wide
                             width: 1280 * 3,
                             rename: {
                                 suffix: '-large@3x',
@@ -108,27 +117,31 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -extralarge.webp is 1.440 pixels wide
                             width: 1440,
                             rename: {
-                                suffix: '-xtralarge',
+                                suffix: '-extralarge',
                                 extname: '.jpg',
                             },
                         },
                         {
+                            // -extralarge@2x.webp is 2.880 pixels wide
                             width: 1440 * 2,
                             rename: {
-                                suffix: '-xtralarge@2x',
+                                suffix: '-extralarge@2x',
                                 extname: '.jpg',
                             },
                         },
                         {
+                            // -extralarge@3x.webp is 4.320 pixels wide
                             width: 1440 * 3,
                             rename: {
-                                suffix: '-xtralarge@3x',
+                                suffix: '-extralarge@3x',
                                 extname: '.jpg',
                             },
                         },
                         {
+                            // -small.webp is 320 pixels wide
                             width: 320,
                             rename: {
                                 suffix: '-small',
@@ -136,6 +149,7 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -small@2x.webp is 640 pixels wide
                             width: 320 * 2,
                             rename: {
                                 suffix: '-small@2x',
@@ -143,6 +157,7 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -small@3x.webp is 960 pixels wide
                             width: 320 * 3,
                             rename: {
                                 suffix: '-small@3x',
@@ -150,6 +165,7 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -medium.webp is 768 pixels wide
                             width: 768,
                             rename: {
                                 suffix: '-medium',
@@ -157,6 +173,7 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -medium@2x.webp is 1.536 pixels wide
                             width: 768 * 2,
                             rename: {
                                 suffix: '-medium@2x',
@@ -164,6 +181,7 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -medium@3x.webp is 2.304 pixels wide
                             width: 768 * 3,
                             rename: {
                                 suffix: '-medium@3x',
@@ -171,6 +189,7 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -large.webp is 1.280 pixels wide
                             width: 1280,
                             rename: {
                                 suffix: '-large',
@@ -178,6 +197,7 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -large@2x.webp is 2.560 pixels wide
                             width: 1280 * 2,
                             rename: {
                                 suffix: '-large@2x',
@@ -185,6 +205,7 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -large@3x.webp is 3.840 pixels wide
                             width: 1280 * 3,
                             rename: {
                                 suffix: '-large@3x',
@@ -192,29 +213,33 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -extralarge.webp is 1.440 pixels wide
                             width: 1440,
                             rename: {
-                                suffix: '-xtralarge',
+                                suffix: '-extralarge',
                                 extname: '.webp',
                             },
                         },
                         {
+                            // -extralarge@2x.webp is 2.880 pixels wide
                             width: 1440 * 2,
                             rename: {
-                                suffix: '-xtralarge@2x',
+                                suffix: '-extralarge@2x',
                                 extname: '.webp',
                             },
                         },
                         {
+                            // -extralarge@3x.webp is 4.320 pixels wide
                             width: 1440 * 3,
                             rename: {
-                                suffix: '-xtralarge@3x',
+                                suffix: '-extralarge@3x',
                                 extname: '.webp',
                             },
                         },
                     ],
                     '*.jpg': [
                         {
+                            // -small.webp is 320 pixels wide
                             width: 320,
                             rename: {
                                 suffix: '-small',
@@ -222,6 +247,7 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -small@2x.webp is 640 pixels wide
                             width: 320 * 2,
                             rename: {
                                 suffix: '-small@2x',
@@ -229,6 +255,7 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -small@3x.webp is 960 pixels wide
                             width: 320 * 3,
                             rename: {
                                 suffix: '-small@3x',
@@ -236,6 +263,7 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -medium.webp is 768 pixels wide
                             width: 768,
                             rename: {
                                 suffix: '-medium',
@@ -243,6 +271,7 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -medium@2x.webp is 1.536 pixels wide
                             width: 768 * 2,
                             rename: {
                                 suffix: '-medium@2x',
@@ -250,6 +279,7 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -medium@3x.webp is 2.304 pixels wide
                             width: 768 * 3,
                             rename: {
                                 suffix: '-medium@3x',
@@ -257,6 +287,7 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -large.webp is 1.280 pixels wide
                             width: 1280,
                             rename: {
                                 suffix: '-large',
@@ -264,6 +295,7 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -large@2x.webp is 2.560 pixels wide
                             width: 1280 * 2,
                             rename: {
                                 suffix: '-large@2x',
@@ -271,6 +303,7 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -large@3x.webp is 3.840 pixels wide
                             width: 1280 * 3,
                             rename: {
                                 suffix: '-large@3x',
@@ -278,27 +311,31 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -extralarge.webp is 1.440 pixels wide
                             width: 1440,
                             rename: {
-                                suffix: '-xtralarge',
+                                suffix: '-extralarge',
                                 extname: '.jpg',
                             },
                         },
                         {
+                            // -extralarge@2x.webp is 2.880 pixels wide
                             width: 1440 * 2,
                             rename: {
-                                suffix: '-xtralarge@2x',
+                                suffix: '-extralarge@2x',
                                 extname: '.jpg',
                             },
                         },
                         {
+                            // -extralarge@3x.webp is 4.320 pixels wide
                             width: 1440 * 3,
                             rename: {
-                                suffix: '-xtralarge@3x',
+                                suffix: '-extralarge@3x',
                                 extname: '.jpg',
                             },
                         },
                         {
+                            // -small.webp is 320 pixels wide
                             width: 320,
                             rename: {
                                 suffix: '-small',
@@ -306,6 +343,7 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -small@2x.webp is 640 pixels wide
                             width: 320 * 2,
                             rename: {
                                 suffix: '-small@2x',
@@ -313,6 +351,7 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -small@3x.webp is 960 pixels wide
                             width: 320 * 3,
                             rename: {
                                 suffix: '-small@3x',
@@ -320,6 +359,7 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -medium.webp is 768 pixels wide
                             width: 768,
                             rename: {
                                 suffix: '-medium',
@@ -327,6 +367,7 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -medium@2x.webp is 1.536 pixels wide
                             width: 768 * 2,
                             rename: {
                                 suffix: '-medium@2x',
@@ -334,6 +375,7 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -medium@3x.webp is 2.304 pixels wide
                             width: 768 * 3,
                             rename: {
                                 suffix: '-medium@3x',
@@ -341,6 +383,7 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -large.webp is 1.280 pixels wide
                             width: 1280,
                             rename: {
                                 suffix: '-large',
@@ -348,6 +391,7 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -large@2x.webp is 2.560 pixels wide
                             width: 1280 * 2,
                             rename: {
                                 suffix: '-large@2x',
@@ -355,6 +399,7 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -large@3x.webp is 3.840 pixels wide
                             width: 1280 * 3,
                             rename: {
                                 suffix: '-large@3x',
@@ -362,23 +407,26 @@ gulp.task('images', function() {
                             },
                         },
                         {
+                            // -extralarge.webp is 1.440 pixels wide
                             width: 1440,
                             rename: {
-                                suffix: '-xtralarge',
+                                suffix: '-extralarge',
                                 extname: '.webp',
                             },
                         },
                         {
+                            // -extralarge@2x.webp is 2.880 pixels wide
                             width: 1440 * 2,
                             rename: {
-                                suffix: '-xtralarge@2x',
+                                suffix: '-extralarge@2x',
                                 extname: '.webp',
                             },
                         },
                         {
+                            // -extralarge@3x.webp is 4.320 pixels wide
                             width: 1440 * 3,
                             rename: {
-                                suffix: '-xtralarge@3x',
+                                suffix: '-extralarge@3x',
                                 extname: '.webp',
                             },
                         },
