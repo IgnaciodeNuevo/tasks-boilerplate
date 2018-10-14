@@ -41,7 +41,6 @@ gulp
 * [gulp-changed](https://github.com/sindresorhus/gulp-changed)
 * [gulp-clean-css](https://github.com/scniro/gulp-clean-css)
 * [gulp-concat](https://github.com/gulp-community/gulp-concat)
-* [gulp-imagemin](https://github.com/sindresorhus/gulp-imagemin)
 * [gulp-notify](https://github.com/mikaelbr/gulp-notify)
 * [gulp-plumber](https://github.com/floatdrop/gulp-plumber)
 * [gulp-rename](https://github.com/hparra/gulp-rename)
@@ -58,6 +57,7 @@ gulp
 * [stylelint-order](https://github.com/hudochenkov/stylelint-order)
 * [stylelint-scss](https://github.com/kristerkari/stylelint-scss)
 * [stylelint](https://github.com/stylelint/stylelint)
+<!-- * [gulp-imagemin](https://github.com/sindresorhus/gulp-imagemin) -->
 <!-- * [gulp-svg-sprite](https://github.com/jkphl/gulp-svg-sprite) -->
 
 ## Removed Plugins

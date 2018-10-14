@@ -9,7 +9,6 @@ const del = require('del');
 const eslint = require('eslint');
 const gulp = require('gulp');
 const notify = require('gulp-notify');
-const imageMin = require('gulp-imagemin');
 const plumber = require('gulp-plumber');
 const responsive = require('gulp-responsive');
 const sass = require('gulp-sass');
@@ -21,6 +20,7 @@ const styleLintScss = require('stylelint-scss');
 const svgo = require('gulp-svgo');
 const uglify = require('gulp-uglify');
 const watch = require('gulp-watch');
+// const imageMin = require('gulp-imagemin');
 // const svgSprite = require('gulp-svg-sprite');
 
 // Launch Server
@@ -478,7 +478,6 @@ gulp.task('images', function() {
                 }
             )
         )
-        .pipe(imageMin)
         .pipe(gulp.dest(config.images.dist))
         .pipe(notify({ message: 'Images task finished!', onLast: true }));
 });
