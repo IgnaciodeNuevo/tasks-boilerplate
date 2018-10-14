@@ -21,18 +21,20 @@ const svgSprite = require('gulp-svg-sprite');
 const uglify = require('gulp-uglify');
 const watch = require('gulp-watch');
 
-// Variables
-const imgSrc = './src/assets/img/';
-const imgDist = './dist/assets/img';
-const jsSrc = './src/assets/js/';
-const jsDist = './dist/assets/js';
-const scssSrc = './src/assets/styles/';
-const scssDist = './dist/assets/styles';
+// Source and distribution variables
+const imagesSrc = './src/assets/img/';
+const imagesDist = './dist/assets/img';
+const javaScriptSrc = './src/assets/scripts/';
+const javaScriptDist = './dist/assets/scripts';
+const sassSrc = './src/assets/styles/';
+const sassDist = './dist/assets/styles';
+const sourceMapsDist = './dist/assets/maps';
 const filesSrc = {
-    js: `${jsSrc}/**/*.js`,
-    sass: `${scssSrc}/**/*.scss`,
+    js: `${javaScriptSrc}/**/*.js`,
+    sass: `${sassSrc}/**/*.scss`,
 };
 
+// Launch Server
 gulp.task('serve', function() {
     browserSync({
         server: {
@@ -41,22 +43,10 @@ gulp.task('serve', function() {
     });
 });
 
-gulp.task('watch', function() {
-    gulp.watch(filesSrc.sass, { interval: 500 }, ['sass']);
-});
-
-gulp.task('sass', function() {
-    return gulp
-        .src(`${scssSrc}/**/*.scss`)
-        .pipe(sourceMaps.init())
-        .pipe(sass.sync({ outputStyle: 'compressed' }).on('error', sass.logError))
-        .pipe(sourceMaps.write('./maps'))
-        .pipe(gulp.dest(`${scssDist}`));
-});
-
+// Process Images
 gulp.task('images', function() {
     return gulp
-        .src(`${imgSrc}*.{jpg,png}`)
+        .src(`${imagesSrc}*.{jpg,png}`)
         .pipe(
             responsive(
                 {
@@ -462,5 +452,5 @@ gulp.task('images', function() {
                 }
             )
         )
-        .pipe(gulp.dest(`${imgDist}`));
+        .pipe(gulp.dest(`${imagesDist}`));
 });
