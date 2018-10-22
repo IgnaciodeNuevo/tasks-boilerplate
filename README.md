@@ -54,6 +54,12 @@ gulp
 
 -   [Font Face Observer](https://fontfaceobserver.com/)
 
+### Non Gulp Plugins
+
+-   [prettier](https://github.com/prettier/prettier)
+-   [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier)
+-   [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)
+
 ### Plugins
 
 -   [browser-sync](https://github.com/BrowserSync/browser-sync)

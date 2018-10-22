@@ -12,15 +12,17 @@
         "node": true
     },
 
-    "plugins": ["import", "node", "promise", "standard"],
-
+    "plugins": ["import", "node", "promise", "standard", "prettier"],
     "globals": {
         "document": false,
         "navigator": false,
         "window": false
     },
 
+    "extends": ["plugin:prettier/recommended"],
+
     "rules": {
+        "prettier/prettier": "error",
         "accessor-pairs": "error",
         "arrow-spacing": ["error", { "before": true, "after": true }],
         "block-spacing": ["error", "always"],
