@@ -18,34 +18,23 @@ const autoPrefixer = require('gulp-autoprefixer'),
     styleLintOrder = require('stylelint-order'),
     styleLintScss = require('stylelint-scss'),
     svgo = require('gulp-svgo'),
-    uglify = require('gulp-uglify'),
-    watch = require('gulp-watch');
+    uglify = require('gulp-uglify');
 // const imageMin = require('gulp-imagemin');
 // const svgSprite = require('gulp-svg-sprite');
 
-// Launch Server
+gulp.task('default', gulp.series('serve', gulp.parallel('scripts', 'styles')));
+
+// Launch Server task
 gulp.task('serve', () => {
     browserSync({
         server: {
             baseDir: './',
         },
     });
-    // Watch Sass and JavaScript changes
-    // gulp.watch(config.watch.scripts, { interval: 500 }, ['reload', ['scripts']]);
-    // gulp.watch(config.watch.styles, { interval: 500 }, ['reload', ['styles']]);
 });
 
-// Watch task
-// gulp.task('watch', function() {
-//     return watch(config.watch.styles, { interval: 500 }, ['reload', ['styles']]).pipe(
-//         gulp.dest(config.styles.dist)
-//     );
-// });
-
-// Force a browser page reload
-gulp.task('reload', () => {
-    browserSync.reload();
-});
+// Clean public folder task
+gulp.task('clean', del.bind(null, ['./dist']));
 
 // Process CSS files to generate final css files in 'public' folder
 gulp.task('styles', () => {
@@ -67,7 +56,7 @@ gulp.task('styles', () => {
         .pipe(sourceMaps.write(config.maps.dist))
         .pipe(gulp.dest(config.styles.dist))
         .pipe(browserSync.reload({ stream: true }))
-        .pipe(notify({ message: 'Styles task finished!', onLast: true }));
+        .pipe(notify({ message: '> Styles task finished!', onLast: true }));
 });
 
 // Process Scripts to generate final js file in 'public' folder
@@ -90,7 +79,7 @@ gulp.task('scripts', () => {
         .pipe(sourceMaps.write(config.maps.dist))
         .pipe(gulp.dest(config.scripts.dist))
         .pipe(browserSync.reload({ stream: true }))
-        .pipe(notify({ message: 'tyles task finished!', onLast: true }));
+        .pipe(notify({ message: '> tyles task finished!', onLast: true }));
 });
 
 // Process SVGs
@@ -100,7 +89,7 @@ gulp.task('svg', () => {
         .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
         .pipe(svgo())
         .pipe(gulp.dest(config.svg.dist))
-        .pipe(notify({ message: 'SVG task finished!', onLast: true }));
+        .pipe(notify({ message: '> SVG task finished!', onLast: true }));
 });
 
 // Process Images
@@ -514,8 +503,5 @@ gulp.task('images', () => {
             )
         )
         .pipe(gulp.dest(config.images.dist))
-        .pipe(notify({ message: 'Images task finished!', onLast: true }));
+        .pipe(notify({ message: '> Images task finished!', onLast: true }));
 });
-
-// Delete Public folder
-gulp.task('clean', del.bind(null, ['./dist']));
