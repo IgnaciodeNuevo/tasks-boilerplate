@@ -10,9 +10,8 @@ $modularscale: (
     ratio: $scale,
 );
 
-
 @mixin heading-h1() {
-    font-size: ms(6);
+    font-size: ms(9);
     margin-top: 0;
 }
 
