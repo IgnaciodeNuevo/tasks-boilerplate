@@ -19,6 +19,10 @@
         "src": "./src/assets/maps/",
         "dist": "./dist/assets/maps"
     },
+    "html": {
+        "src": "./src/",
+        "dist": "./dist"
+    },
     "watch": {
         "scripts": "./src/assets/scripts/**/*.js",
         "styles": "./src/assets/styles/**/*.scss"

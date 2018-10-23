@@ -22,7 +22,7 @@ const autoPrefixer = require('gulp-autoprefixer'),
 // const imageMin = require('gulp-imagemin');
 // const svgSprite = require('gulp-svg-sprite');
 
-gulp.task('default', gulp.series('serve', gulp.parallel('scripts', 'styles')));
+gulp.task('default', gulp.series('serve', 'html', gulp.parallel('scripts', 'styles')));
 
 // Launch Server task
 gulp.task('serve', () => {
@@ -35,6 +35,15 @@ gulp.task('serve', () => {
 
 // Clean public folder task
 gulp.task('clean', del.bind(null, ['./dist']));
+
+// Copy HTML task
+gulp.task('html', () => {
+    return gulp
+        .src(config.html.src)
+        .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
+        .pipe(gulp.dest(config.html.dist))
+        .pipe(notify({ message: '> Copied HTML!' }));
+});
 
 // Process CSS files to generate final css files in 'public' folder
 gulp.task('styles', () => {
