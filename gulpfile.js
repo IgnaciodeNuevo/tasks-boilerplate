@@ -35,6 +35,13 @@ gulp.task('serve', () => {
     // gulp.watch(config.watch.styles, { interval: 500 }, ['reload', ['styles']]);
 });
 
+// Watch task
+// gulp.task('watch', function() {
+//     return watch(config.watch.styles, { interval: 500 }, ['reload', ['styles']]).pipe(
+//         gulp.dest(config.styles.dist)
+//     );
+// });
+
 // Force a browser page reload
 gulp.task('reload', () => {
     browserSync.reload();
