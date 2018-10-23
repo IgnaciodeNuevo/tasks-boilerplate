@@ -3,9 +3,60 @@
 //
 @import '../abstracts/variables.scss';
 
-body {
+//
+// #Body-Text
+//
+html {
     color: $color-base;
-    font-family: $font-family-base;
-    font-size: 100%;
+    font-size: 100%; // 16px
+
+    @media (min-width: $mq-s) {
+        font-size: 120%;
+    }
+
+    @media (min-width: $mq-l) {
+        font-size: 140%;
+    }
+}
+
+// Headings font-size and line-height
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.1;
+}
+
+p {
     line-height: 1.4;
+}
+
+h1 {
+    @include heading-h1();
+}
+
+h2 {
+    @include heading-h2();
+}
+
+h3 {
+    @include heading-h3();
+}
+
+h4 {
+    @include heading-h4();
+}
+
+h5 {
+    @include heading-h5();
+}
+
+h6 {
+    @include heading-h6();
+}
+
+p {
+    @include body-text();
 }

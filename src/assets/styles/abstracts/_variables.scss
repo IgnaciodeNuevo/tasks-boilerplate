@@ -133,7 +133,20 @@ $icon-xl: $space-xl; // 64px
 //
 // #Scale
 //
-$scale: 1.61803;
+$scale: 1.25;
+
+
+
+//
+// #Media-Queries
+//
+$mq-xxs: 20em; // 320px
+$mq-xs: 30em; // 480px
+$mq-s: 48em; // 768px
+$mq-m: 61.25em; // 980px
+$mq-l: 80em; // 1280px
+$mq-xl: 90em; // 1440px
+
 
 
 

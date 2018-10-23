@@ -56,6 +56,7 @@ gulp
 
 ### Non Gulp Plugins
 
+-   [Modular Scale](https://github.com/modularscale/modularscale-sass)
 -   [prettier](https://github.com/prettier/prettier)
 -   [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier)
 -   [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)
