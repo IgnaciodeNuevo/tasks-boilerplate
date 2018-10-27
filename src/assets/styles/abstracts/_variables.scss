@@ -41,8 +41,6 @@ $animation-type: easy-in;
 //
 // #Fonts
 //
-
-// #Font-Family
 $font-family-base:
     -apple-system,
     BlinkMacSystemFont,
@@ -149,12 +147,3 @@ $VariablesMap: (
     color-base-light: $color-base-light,
     color-base-lighter: $color-base-lighter,
 );
-
-//
-// #Root Variables
-//
-:root {
-    @each $prop, $val in $VariablesMap {
-        --#{$prop}: #{$val};
-    }
-}
