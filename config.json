@@ -1,4 +1,5 @@
 {
+    "dist": "./dist",
     "images": {
         "src": "./src/assets/images/*.{jpg,png}",
         "dist": "./dist/assets/images"
@@ -20,7 +21,7 @@
         "dist": "./dist/assets/maps"
     },
     "html": {
-        "src": "./src/",
+        "src": "./src/*.html",
         "dist": "./dist"
     },
     "watch": {

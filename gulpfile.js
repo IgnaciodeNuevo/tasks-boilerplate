@@ -22,7 +22,7 @@ const autoPrefixer = require('gulp-autoprefixer'),
 // const imageMin = require('gulp-imagemin');
 // const svgSprite = require('gulp-svg-sprite');
 
-gulp.task('default', gulp.series('serve', 'html', gulp.parallel('scripts', 'styles')));
+// gulp.task('default', gulp.series('serve', 'html', gulp.parallel('scripts', 'styles')));
 
 // Launch Server task
 gulp.task('serve', () => {
@@ -33,8 +33,8 @@ gulp.task('serve', () => {
     });
 });
 
-// Clean public folder task
-gulp.task('clean', del.bind(null, ['./dist']));
+// Clean DISTRIBUTOION (dist) folder task
+gulp.task('clean', del.bind(null, [config.dist], console.log('> Deleted DIST folder!')));
 
 // Copy HTML task
 gulp.task('html', () => {
@@ -42,10 +42,10 @@ gulp.task('html', () => {
         .src(config.html.src)
         .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
         .pipe(gulp.dest(config.html.dist))
-        .pipe(notify({ message: '> Copied HTML!' }));
+        .pipe(notify({ message: '> Copy HTML finished!', onLast: true }));
 });
 
-// Process CSS files to generate final css files in 'public' folder
+// Process CSS files to generate final css files in DISTRIBUTOION (dist) folder
 gulp.task('styles', () => {
     return gulp
         .src(config.styles.src)
@@ -68,7 +68,7 @@ gulp.task('styles', () => {
         .pipe(notify({ message: '> Styles task finished!', onLast: true }));
 });
 
-// Process Scripts to generate final js file in 'public' folder
+// Process Scripts to generate final js file in DISTRIBUTOION (dist) folder
 gulp.task('scripts', () => {
     return gulp
         .src(config.scripts.src)
