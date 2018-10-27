@@ -11,6 +11,7 @@ const autoPrefixer = require('gulp-autoprefixer'),
     notify = require('gulp-notify'),
     plumber = require('gulp-plumber'),
     responsive = require('gulp-responsive'),
+    rename = require('gulp-rename'),
     sass = require('gulp-sass'),
     sourceMaps = require('gulp-sourcemaps'),
     styleLint = require('stylelint'),
@@ -63,6 +64,12 @@ gulp.task('styles', () => {
             })
         )
         .pipe(sourceMaps.write(config.maps.dist))
+        .pipe(
+            rename({
+                basename: 'main',
+                suffix: '.min',
+            })
+        )
         .pipe(gulp.dest(config.styles.dist))
         .pipe(browserSync.reload({ stream: true }))
         .pipe(notify({ message: '> Styles task finished!', onLast: true }));
@@ -86,6 +93,12 @@ gulp.task('scripts', () => {
         .pipe(concat('main.js'))
         .pipe(uglify())
         .pipe(sourceMaps.write(config.maps.dist))
+        .pipe(
+            rename({
+                basename: 'main',
+                suffix: '.min',
+            })
+        )
         .pipe(gulp.dest(config.scripts.dist))
         .pipe(browserSync.reload({ stream: true }))
         .pipe(notify({ message: '> tyles task finished!', onLast: true }));
