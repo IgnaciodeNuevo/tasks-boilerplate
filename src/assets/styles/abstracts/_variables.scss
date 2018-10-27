@@ -17,9 +17,9 @@ $color-base-lighter: lighten($color-base, 80);
 $color-primary: #0047bb;
 
 // #State-Palette
-$state-ok:      #008022;
+$state-ok: #008022;
 $state-warning: #ffac00;
-$state-error:   #ff1e1e;
+$state-error: #ff1e1e;
 
 // #Text-Colors
 $text-color-base: $color-base-dark;
@@ -29,27 +29,21 @@ $text-color-link: $color-primary;
 $color-white: #ffffff;
 $color-black: #000000;
 
-
-
 //
 // #Box-Shadow
 //
-$box-shaodw-1: 0 1px 2px rgba($color-base-darker, 0.5);
-$box-shaodw-2: 0 1px 2px rgba($color-base-dark, 0.5);
-$box-shaodw-3: 0 1px 2px rgba($color-base-light, 0.5);
-$box-shaodw-4: 0 1px 2px rgba($color-base-lighter, 0.5);
-
-
+$box-shaodw-1: 0 1px 2px rgba($color-base-darker, .5);
+$box-shaodw-2: 0 1px 2px rgba($color-base-dark, .5);
+$box-shaodw-3: 0 1px 2px rgba($color-base-light, .5);
+$box-shaodw-4: 0 1px 2px rgba($color-base-lighter, .5);
 
 //
 // #Animations
 //
-$animation-speed-slow:    0.35s;
-$animation-speed-regular: 0.25s;
-$animation-speed-fast:    0.15s;
-$animation-type:          easy-in;
-
-
+$animation-speed-slow: .35s;
+$animation-speed-regular: .25s;
+$animation-speed-fast: .15s;
+$animation-type: easy-in;
 
 //
 // #Fonts
@@ -57,38 +51,34 @@ $animation-type:          easy-in;
 
 // #Font-Family
 $font-family-base:
-  -apple-system,
-  BlinkMacSystemFont,
-  "Segoe UI",
-  Roboto,
-  Helvetica,
-  Arial,
-  sans-serif,
-  "Apple Color Emoji",
-  "Segoe UI Emoji",
-  "Segoe UI Symbol";
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif,
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol';
 
 //
 // $Font-Weight
 //
-$font-weight-thin:       100;
+$font-weight-thin: 100;
 $font-weight-extralight: 200;
-$font-weight-light:      300;
-$font-weight-normal:     400;
-$font-weight-medium:     500;
-$font-weight-semibold:   600;
-$font-weight-bold:       700;
-$font-weight-extrabold:  800;
-$font-weight-black:      900;
-
-
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
+$font-weight-black: 900;
 
 //
 // #Font-Size
 //
 $font-base: 1em; // 16px
-
-
 
 //
 // #Spacing
@@ -128,14 +118,10 @@ $icon-m: $space-m; // 16px
 $icon-l: $space-l; // 32px
 $icon-xl: $space-xl; // 64px
 
-
-
 //
 // #Scale
 //
 $scale: 1.25;
-
-
 
 //
 // #Media-Queries
@@ -147,9 +133,6 @@ $mq-m: 61.25em; // 980px
 $mq-l: 80em; // 1280px
 $mq-xl: 90em; // 1440px
 
-
-
-
 //
 // $Z-Index
 //
@@ -157,3 +140,19 @@ $z-index-s: 1;
 $z-index-m: 2;
 $z-index-l: 3;
 $z-index-xl: 4;
+
+//
+// #Variables map
+//
+$VariablesMap: (
+    color-primary: $color-primary,
+);
+
+//
+// #Root Variables
+//
+:root {
+    @each $prop, $val in $VariablesMap {
+        --#{$prop}: #{$val};
+    }
+}
