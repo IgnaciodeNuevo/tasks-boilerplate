@@ -9,16 +9,15 @@
         "dist": "./dist/assets/images"
     },
     "scripts": {
-        "src": "./src/assets/scripts/",
+        "src": "./src/assets/scripts/*.js",
         "dist": "./dist/assets/scripts"
     },
     "styles": {
-        "src": "./src/assets/styles/",
+        "src": "./src/assets/styles/*.scss",
         "dist": "./dist/assets/styles"
     },
     "maps": {
-        "src": "./src/assets/maps/",
-        "dist": "./dist/assets/maps"
+        "dist": "../maps"
     },
     "html": {
         "src": "./src/*.html",
