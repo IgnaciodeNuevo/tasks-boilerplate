@@ -2,7 +2,6 @@ const autoPrefixer = require('gulp-autoprefixer'),
     babel = require('gulp-babel'),
     browserSync = require('browser-sync'),
     changed = require('gulp-changed'),
-    cleanCss = require('gulp-clean-css'),
     concat = require('gulp-concat'),
     config = require('./config.json'),
     critical = require('critical'),
@@ -11,8 +10,9 @@ const autoPrefixer = require('gulp-autoprefixer'),
     gulp = require('gulp'),
     notify = require('gulp-notify'),
     plumber = require('gulp-plumber'),
-    responsive = require('gulp-responsive'),
     rename = require('gulp-rename'),
+    responsive = require('gulp-responsive'),
+    rev = require('gulp-rev'),
     sass = require('gulp-sass'),
     sourceMaps = require('gulp-sourcemaps'),
     styleLint = require('stylelint'),
@@ -38,7 +38,7 @@ gulp.task('serve', () => {
 //
 // Clean DISTRIBUTOION (dist) folder task
 //
-gulp.task('clean', del.bind(null, [config.dist], console.log('> Deleted DIST folder!')));
+gulp.task('clean', del.bind(null, [config.dist]));
 
 //
 // Copy HTML task
@@ -57,6 +57,7 @@ gulp.task('html', () => {
 gulp.task('styles', () => {
     return gulp
         .src(config.styles.src)
+        .pipe(changed(config.styles.src))
         .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
         .pipe(sourceMaps.init())
         .pipe(
@@ -77,6 +78,7 @@ gulp.task('styles', () => {
                 suffix: '.min',
             })
         )
+        // .pipe(rev())
         .pipe(gulp.dest(config.styles.dist))
         .pipe(browserSync.reload({ stream: true }))
         .pipe(notify({ message: '> Styles task finished!', onLast: true }));
@@ -101,9 +103,11 @@ gulp.task('scripts', () => {
             .pipe(sourceMaps.init())
             .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
             .pipe(concat('main.js'))
-            .pipe(babel({
-                presets: ['@babel/env']
-            }))
+            .pipe(
+                babel({
+                    presets: ['@babel/env'],
+                })
+            )
             .pipe(uglify())
             .pipe(sourceMaps.write(config.maps.dist))
             .pipe(
@@ -136,6 +140,7 @@ gulp.task('svg', () => {
 gulp.task('images', () => {
     return gulp
         .src(config.images.src)
+        .pipe(changed(config.images.src))
         .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
         .pipe(
             responsive(

@@ -64,12 +64,11 @@ gulp
 ### Plugins
 
 -   [browser-sync](https://github.com/BrowserSync/browser-sync)
--   [critikal](https://github.com/addyosmani/critical)
+-   [critical](https://github.com/addyosmani/critical)
 -   [del](https://github.com/sindresorhus/del)
 -   [gulp-autoprefixer](https://github.com/gulp-community/gulp-cached)
 -   [gulp-babel](https://github.com/babel/gulp-babel)
 -   [gulp-changed](https://github.com/sindresorhus/gulp-changed)
--   [gulp-clean-css](https://github.com/scniro/gulp-clean-css)
 -   [gulp-concat](https://github.com/gulp-community/gulp-concat)
 -   [gulp-eslint](https://github.com/adametry/gulp-eslint)
 -   [gulp-notify](https://github.com/mikaelbr/gulp-notify)
@@ -81,8 +80,6 @@ gulp
 -   [gulp-sourcemaps](https://github.com/gulp-sourcemaps/gulp-sourcemaps)
 -   [gulp-svgo](https://github.com/ben-eb/gulp-svgmin)
 -   [gulp-uglify](https://github.com/terinjokes/gulp-uglify)
--   [gulp-watch](https://github.com/floatdrop/gulp-watch)
--   [gulp-webp](https://github.com/sindresorhus/gulp-webp)
 -   [gulp](https://github.com/gulpjs/gulp)
 -   [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard)
 -   [stylelint-order](https://github.com/hudochenkov/stylelint-order)
@@ -97,7 +94,10 @@ gulp
 ### Removed Plugins
 
 -   [gulp-cached](https://github.com/gulp-community/gulp-cached)
+-   [gulp-clean-css](https://github.com/scniro/gulp-clean-css)
 -   [gulp-csso](https://github.com/ben-eb/gulp-csso)
 -   [gulp-newer](https://github.com/tschaub/gulp-newer)
 -   [gulp-uncss: (DEPRECATED)](https://github.com/ben-eb/gulp-uncss)
+-   [gulp-watch: (OUTDATED DEPENDENCIES)](https://github.com/floatdrop/gulp-watch)
+-   [gulp-webp](https://github.com/sindresorhus/gulp-webp)
 -   [normalize.scss: (DEPRECATED)](https://github.com/kristerkari/normalize.scss)
