@@ -20,24 +20,28 @@ const autoPrefixer = require('gulp-autoprefixer'),
     styleLintScss = require('stylelint-scss'),
     svgo = require('gulp-svgo'),
     uglify = require('gulp-uglify');
-// const imageMin = require('gulp-imagemin');
-// const svgSprite = require('gulp-svg-sprite');
 
-// gulp.task('default', gulp.series('serve', 'html', gulp.parallel('scripts', 'styles')));
-
+//
 // Launch Server task
+//
 gulp.task('serve', () => {
     browserSync({
         server: {
             baseDir: './',
         },
+        ghostMode: false,
+        online: true,
     });
 });
 
+//
 // Clean DISTRIBUTOION (dist) folder task
+//
 gulp.task('clean', del.bind(null, [config.dist], console.log('> Deleted DIST folder!')));
 
+//
 // Copy HTML task
+//
 gulp.task('html', () => {
     return gulp
         .src(config.html.src)
@@ -46,7 +50,9 @@ gulp.task('html', () => {
         .pipe(notify({ message: '> Copy HTML finished!', onLast: true }));
 });
 
+//
 // Process CSS files to generate final css files in DISTRIBUTOION (dist) folder
+//
 gulp.task('styles', () => {
     return gulp
         .src(config.styles.src)
@@ -75,7 +81,9 @@ gulp.task('styles', () => {
         .pipe(notify({ message: '> Styles task finished!', onLast: true }));
 });
 
+//
 // Process Scripts to generate final js file in DISTRIBUTOION (dist) folder
+//
 gulp.task('scripts', () => {
     return gulp
         .src(config.scripts.src)
@@ -104,7 +112,9 @@ gulp.task('scripts', () => {
         .pipe(notify({ message: '> tyles task finished!', onLast: true }));
 });
 
+//
 // Process SVGs
+//
 gulp.task('svg', () => {
     return gulp
         .src(config.svg.src)
@@ -114,7 +124,9 @@ gulp.task('svg', () => {
         .pipe(notify({ message: '> SVG task finished!', onLast: true }));
 });
 
+//
 // Process Images
+//
 gulp.task('images', () => {
     return gulp
         .src(config.images.src)

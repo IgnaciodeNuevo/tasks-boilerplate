@@ -7,7 +7,6 @@
 //
 
 // #Base-Color
-// #Absolute-colors to avoid linting alerts on hardcoded values
 $color-white: #ffffff;
 $color-base: #000000;
 $color-base-darker: lighten($color-base, 20);
@@ -18,7 +17,7 @@ $color-base-lighter: lighten($color-base, 80);
 // #Primary-Color
 $color-primary: #0047bb;
 
-// #Text-Colors
+// #Other-Colors
 $text-color-base: $color-base-dark;
 $text-color-link: $color-primary;
 
