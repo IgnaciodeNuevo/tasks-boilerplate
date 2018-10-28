@@ -1,4 +1,5 @@
 const autoPrefixer = require('gulp-autoprefixer'),
+    babel = require('gulp-babel'),
     browserSync = require('browser-sync'),
     changed = require('gulp-changed'),
     cleanCss = require('gulp-clean-css'),
@@ -100,7 +101,10 @@ gulp.task('scripts', () => {
             .pipe(sourceMaps.init())
             .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
             .pipe(concat('main.js'))
-            // .pipe(uglify())
+            .pipe(babel({
+                presets: ['@babel/env']
+            }))
+            .pipe(uglify())
             .pipe(sourceMaps.write(config.maps.dist))
             .pipe(
                 rename({
@@ -110,7 +114,7 @@ gulp.task('scripts', () => {
             )
             .pipe(gulp.dest(config.scripts.dist))
             .pipe(browserSync.reload({ stream: true }))
-            .pipe(notify({ message: '> tyles task finished!', onLast: true }))
+            .pipe(notify({ message: '> Scripts task finished!', onLast: true }))
     );
 });
 

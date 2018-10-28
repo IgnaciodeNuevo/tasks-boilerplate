@@ -67,6 +67,7 @@ gulp
 -   [critikal](https://github.com/addyosmani/critical)
 -   [del](https://github.com/sindresorhus/del)
 -   [gulp-autoprefixer](https://github.com/gulp-community/gulp-cached)
+-   [gulp-babel](https://github.com/babel/gulp-babel)
 -   [gulp-changed](https://github.com/sindresorhus/gulp-changed)
 -   [gulp-clean-css](https://github.com/scniro/gulp-clean-css)
 -   [gulp-concat](https://github.com/gulp-community/gulp-concat)

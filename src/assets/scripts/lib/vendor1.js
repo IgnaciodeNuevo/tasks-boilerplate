@@ -1,3 +1,3 @@
-(function () {
-    console.log('Venor 1 test');
+(function() {
+  console.log("Venor 1 test");
 })();
