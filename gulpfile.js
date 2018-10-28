@@ -73,7 +73,7 @@ gulp.task('styles', () => {
         .pipe(
             rename({
                 basename: 'main',
-                suffix: '.min',
+                suffix: '.min.css',
             })
         )
         .pipe(gulp.dest(config.styles.dist))
@@ -85,31 +85,33 @@ gulp.task('styles', () => {
 // Process Scripts to generate final js file in DISTRIBUTOION (dist) folder
 //
 gulp.task('scripts', () => {
-    return gulp
-        .src(config.scripts.src)
-        .pipe(
-            eslint.results(results => {
-                // Called once for all ESLint results.
-                console.log(`Total Results: ${results.length}`);
-                console.log(`Total Warnings: ${results.warningCount}`);
-                console.log(`Total Errors: ${results.errorCount}`);
-            })
-        )
-        .pipe(eslint.formatEach('compact', process.stderr))
-        .pipe(sourceMaps.init())
-        .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
-        .pipe(concat('main.js'))
-        .pipe(uglify())
-        .pipe(sourceMaps.write(config.maps.dist))
-        .pipe(
-            rename({
-                basename: 'main',
-                suffix: '.min',
-            })
-        )
-        .pipe(gulp.dest(config.scripts.dist))
-        .pipe(browserSync.reload({ stream: true }))
-        .pipe(notify({ message: '> tyles task finished!', onLast: true }));
+    return (
+        gulp
+            .src([config.scripts.src, config.scripts.vendorsSrc])
+            // .pipe(
+            //     eslint.results(results => {
+            //         // Called once for all ESLint results.
+            //         console.log(`Total Results: ${results.length}`);
+            //         console.log(`Total Warnings: ${results.warningCount}`);
+            //         console.log(`Total Errors: ${results.errorCount}`);
+            //     })
+            // )
+            // .pipe(eslint.formatEach('compact', process.stderr))
+            .pipe(sourceMaps.init())
+            .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
+            .pipe(concat('main.js'))
+            // .pipe(uglify())
+            .pipe(sourceMaps.write(config.maps.dist))
+            .pipe(
+                rename({
+                    basename: 'main',
+                    suffix: '.min.js',
+                })
+            )
+            .pipe(gulp.dest(config.scripts.dist))
+            .pipe(browserSync.reload({ stream: true }))
+            .pipe(notify({ message: '> tyles task finished!', onLast: true }))
+    );
 });
 
 //

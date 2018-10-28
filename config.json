@@ -10,6 +10,7 @@
     },
     "scripts": {
         "src": "./src/assets/scripts/*.js",
+        "vendorsSrc": "./src/assets/scripts/lib/*.js",
         "dist": "./dist/assets/scripts"
     },
     "styles": {
@@ -25,6 +26,7 @@
     },
     "watch": {
         "scripts": "./src/assets/scripts/**/*.js",
+        "vendorsSrc": "./src/assets/scripts/lib/**/*.js",
         "styles": "./src/assets/styles/**/*.scss"
     }
 }
