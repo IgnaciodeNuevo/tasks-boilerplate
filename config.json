@@ -18,7 +18,7 @@
         "dist": "./dist/assets/styles"
     },
     "maps": {
-        "dist": "../maps"
+        "dist": "./"
     },
     "html": {
         "src": "./src/*.html",

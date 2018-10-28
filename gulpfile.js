@@ -74,7 +74,7 @@ gulp.task('styles', () => {
         .pipe(
             rename({
                 basename: 'main',
-                suffix: '.min.css',
+                suffix: '.min',
             })
         )
         .pipe(gulp.dest(config.styles.dist))
@@ -109,7 +109,7 @@ gulp.task('scripts', () => {
             .pipe(
                 rename({
                     basename: 'main',
-                    suffix: '.min.js',
+                    suffix: '.min',
                 })
             )
             .pipe(gulp.dest(config.scripts.dist))
