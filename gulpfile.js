@@ -537,7 +537,7 @@ gulp.task('images', () => {
                 {
                     // Global configuration for all images
                     // The output quality for JPEG, WebP and TIFF output formats
-                    quality: 100,
+                    quality: 85,
                     // Use progressive (interlace) scan for JPEG and PNG output
                     progressive: true,
                     // Strip all metadata
