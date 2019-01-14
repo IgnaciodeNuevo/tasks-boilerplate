@@ -71,7 +71,13 @@ gulp.task('styles', () => {
                 cascade: false,
             })
         )
-        .pipe(sourceMaps.write(config.maps.dist))
+        .pipe(
+          $.sourcemaps.write(config.maps.dist, {
+            mapFile: function(mapFilePath) {
+              return mapFilePath.replace('.css.map', '.min.map');
+            }
+          })
+        )
         .pipe(
             rename({
                 basename: 'main',
